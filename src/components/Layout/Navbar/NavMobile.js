@@ -67,6 +67,7 @@ const NavMobile = () => {
       </StyledHeader>
       <StyledNav toggled={toggled}>
         <NavLinks />
+        x
         <ThemeToggler />
       </StyledNav>
     </StyledMobileNav>
