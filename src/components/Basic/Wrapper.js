@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import BackgroundImg from '../../images/main-bg.png';
 
 const Wrapper = styled.div`
   position: relative;
@@ -12,7 +11,6 @@ const Wrapper = styled.div`
   @media ${props => props.theme.media.fablet} {
     height: auto;
   }
-
 `;
 
 export default Wrapper;

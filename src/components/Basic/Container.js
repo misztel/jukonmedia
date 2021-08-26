@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
+  width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
-  width: 90%;
-  height: 84vh;
   align-items: center;
 
-  @media ${props => props.theme.media.fablet} {
+  @media ${props => props.theme.media.desktop} {
     width: 100%;
-    height: 100%;
+    padding: 20px;
   }
-
 `;
 
 export default Container;

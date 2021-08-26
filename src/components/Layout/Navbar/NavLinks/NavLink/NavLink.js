@@ -6,15 +6,23 @@ const StyledLink = styled(props => <Link {...props} />)`
   color: ${({ theme }) => theme.primary};
   text-decoration: none;
   font-weight: 600;
-  padding: 10px 20px;
+
   transition: all 0.3s ease-in-out;
   &:hover {
     color: ${({ theme }) => theme.text};
   }
 `;
 
+const StyledNavLink = styled.li`
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+`;
+
 const NavLink = props => (
-  <StyledLink to={props.to}>{props.children}</StyledLink>
+  <StyledNavLink>
+    <StyledLink to={props.to}>{props.children}</StyledLink>
+  </StyledNavLink>
 );
 
 export default NavLink;

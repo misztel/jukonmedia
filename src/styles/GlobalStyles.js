@@ -19,7 +19,6 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.background};
     color: ${({ theme }) => theme.text};
     margin: 0;
-    overflow: hidden;
   }
   a{
     color: ${({ theme }) => theme.primaryColor};

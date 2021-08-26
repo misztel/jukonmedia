@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const StyledMenuToggler = styled.button`
   display: none;
   align-items: center;
@@ -13,25 +12,25 @@ const StyledMenuToggler = styled.button`
   z-index: 10;
   border: none;
   transition: all 0.3s linear;
-  .inner{
+  .inner {
     transition: all 0.3s linear;
-    &:before{
+    &:before {
       transition: all 0.3s linear;
     }
-    &:after{
+    &:after {
       transition: all 0.3s linear;
     }
   }
   &:hover {
-    .textinner{
+    .textinner {
       color: ${({ theme }) => theme.text};
     }
-    .inner{
+    .inner {
       background-color: ${({ theme }) => theme.text};
-      &:before{
+      &:before {
         background-color: ${({ theme }) => theme.text};
       }
-      &:after{
+      &:after {
         background-color: ${({ theme }) => theme.text};
       }
     }
@@ -52,8 +51,8 @@ const HamburgerWrapper = styled.div`
   padding: 10px;
   cursor: pointer;
   transition-timing-function: linear;
-  transition-duration: .15s;
-  transition-property: opacity,filter;
+  transition-duration: 0.15s;
+  transition-property: opacity, filter;
   text-transform: none;
   color: inherit;
   border: 0;
@@ -72,41 +71,41 @@ const HamburgerInner = styled.div`
   width: 40px;
   height: 4px;
   transition-timing-function: ease-in-out;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
   transition-property: transform, top;
-  transform: ${props => props.isToggled ? 'rotate(-45deg)' : 'rotate(0deg)'};
+  transform: ${props => (props.isToggled ? 'rotate(-45deg)' : 'rotate(0deg)')};
   border-radius: 4px;
-  top: ${props => props.isToggled ? '10px' : '0px'};
+  top: ${props => (props.isToggled ? '10px' : '0px')};
   background-color: ${({ theme }) => theme.primaryColor};
-&:before{
-    content:'';
+  &:before {
+    content: '';
     position: absolute;
     width: 40px;
     height: 4px;
     transition-timing-function: ease-in-out;
-    transition-duration: .15s;
+    transition-duration: 0.15s;
     transition-property: transform, top;
-    transform: ${props => props.isToggled ? 'rotate(90deg)' : 'rotate(0deg)'};
+    transform: ${props => (props.isToggled ? 'rotate(90deg)' : 'rotate(0deg)')};
     border-radius: 4px;
     background-color: ${({ theme }) => theme.primaryColor};
-    top: ${props => props.isToggled ? '0px' : '10px'};
+    top: ${props => (props.isToggled ? '0px' : '10px')};
     left: 0px;
-}
-&:after{
-    content:'';
+  }
+  &:after {
+    content: '';
     position: absolute;
     width: 40px;
     height: 4px;
     transition-timing-function: ease-in-out;
-    transition-duration: .15s;
+    transition-duration: 0.15s;
     transition-property: transform, top;
-    transform: ${props => props.isToggled ? 'rotate(90deg)' : 'rotate(0deg)'};
+    transform: ${props => (props.isToggled ? 'rotate(90deg)' : 'rotate(0deg)')};
     border-radius: 4px;
     background-color: ${({ theme }) => theme.primaryColor};
-    top: ${props => props.isToggled ? '0px' : '20px'};
+    top: ${props => (props.isToggled ? '0px' : '20px')};
     left: 0px;
-    opacity: ${props => props.isToggled ? '0' : '1'};
-}
+    opacity: ${props => (props.isToggled ? '0' : '1')};
+  }
 `;
 
 const NavToggler = ({ clicked, toggled }) => {

@@ -33,7 +33,7 @@ const ToggleSlider = styled.span`
     position: absolute;
     content: '';
     transform: ${props =>
-    props.theme === 'light' ? 'translateX(0px);' : 'translateX(18px);'};
+      props.theme === 'light' ? 'translateX(0px);' : 'translateX(18px);'};
     height: 18px;
     width: 18px;
     left: 4px;

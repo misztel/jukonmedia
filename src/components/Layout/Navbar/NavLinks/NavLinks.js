@@ -1,9 +1,11 @@
 import React from 'react';
 
-import NavLink from './NavLink/NavLink'
+import NavLink from './NavLink/NavLink';
 import styled from 'styled-components';
 
-const StyledNavLinks = styled.div`
+const StyledNavLinks = styled.ul`
+  margin: 0;
+  list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: center;

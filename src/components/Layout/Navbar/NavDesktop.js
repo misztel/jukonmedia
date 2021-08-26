@@ -6,7 +6,7 @@ import ThemeToggler from '../../Theme/ThemeToggler';
 
 import Logo from '../../../images/logocompany.svg';
 
-const StyledNavDesktop = styled.div`
+const StyledNavDesktop = styled.header`
   position: relative;
   left: 0px;
   top: 0px;
@@ -20,7 +20,11 @@ const StyledNavDesktop = styled.div`
   @media ${props => props.theme.media.fablet} {
     display: none;
   }
+`;
 
+const StyledNav = styled.nav`
+  display: flex;
+  align-items: center;
 `;
 
 const StyledLogo = styled.img`
@@ -31,8 +35,10 @@ const NavDesktop = () => {
   return (
     <StyledNavDesktop>
       <StyledLogo src={Logo} />
-      <NavLinks />
-      <ThemeToggler />
+      <StyledNav>
+        <NavLinks />
+        <ThemeToggler />
+      </StyledNav>
     </StyledNavDesktop>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -10,7 +10,6 @@ import { GlobalStyles } from '../../styles/GlobalStyles';
 
 import NavDesktop from './Navbar/NavDesktop';
 import NavMobile from './Navbar/NavMobile';
-import Wrapper from '../Basic/Wrapper';
 import Container from '../Basic/Container';
 
 import ThemeContext from '../Theme/ThemeContext';
@@ -29,17 +28,18 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={themeMode}>
       <>
         <GlobalStyles />
-        <Wrapper>
+        <NavHeader>
           <Container>
-            <NavHeader>
-              <ThemeContext.Provider value={{ theme, themeToggler, mountedComponent }}>
-                <NavDesktop />
-                <NavMobile />
-              </ThemeContext.Provider>
-            </NavHeader>
-            {children}
+            <ThemeContext.Provider
+              value={{ theme, themeToggler, mountedComponent }}
+            >
+              <NavDesktop />
+              <NavMobile />
+            </ThemeContext.Provider>
           </Container>
-        </Wrapper>
+        </NavHeader>
+
+        <Container>{children}</Container>
       </>
     </ThemeProvider>
   );

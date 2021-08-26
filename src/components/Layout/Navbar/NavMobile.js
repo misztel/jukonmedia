@@ -7,7 +7,7 @@ import ThemeToggler from '../../Theme/ThemeToggler';
 
 import Logo from '../../../images/logocompany.svg';
 
-const StyledMobileNav = styled.div`
+const StyledMobileNav = styled.header`
   display: none;
   width: 100%;
   padding: 10px;
@@ -17,7 +17,7 @@ const StyledMobileNav = styled.div`
   }
 `;
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -38,8 +38,8 @@ const StyledNav = styled.div`
   justify-content: space-evenly;
   background-color: ${({ theme }) => theme.background};
   transition: all 0.3s ease-in-out;
-  opacity: ${props => props.toggled ? 1 : 0};
-  visibility: ${props => props.toggled ? 'visible' : 'hidden'};
+  opacity: ${props => (props.toggled ? 1 : 0)};
+  visibility: ${props => (props.toggled ? 'visible' : 'hidden')};
 
   @media ${props => props.theme.media.fablet} {
     display: flex;
@@ -52,12 +52,11 @@ const StyledLogo = styled.img`
 `;
 
 const NavMobile = () => {
-
   const [toggled, setToggle] = useState(false);
 
   const toggleHandler = () => {
     setToggle(!toggled);
-  }
+  };
 
   return (
     <StyledMobileNav>
@@ -67,7 +66,6 @@ const NavMobile = () => {
       </StyledHeader>
       <StyledNav toggled={toggled}>
         <NavLinks />
-        x
         <ThemeToggler />
       </StyledNav>
     </StyledMobileNav>

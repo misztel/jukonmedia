@@ -1,0 +1,48 @@
+import React, { useCallback } from 'react';
+import styled from 'styled-components';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+
+const ItemButton = styled.div`
+  width: 100%;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: ${({ theme }) => theme.reversePrimaryColor};
+  color: ${({ theme }) => theme.secondaryText};
+  transition: transform 0.2s ease;
+  font-weight: 600;
+  border-bottom: 2px solid gainsboro;
+
+  &:hover {
+    color: ${({ theme }) => theme.primaryColor};
+  }
+`;
+
+const ItemIcon = styled.div`
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+  transform: ${({ index, currentItem }) =>
+    index === currentItem ? 'rotate(180deg)' : 'rotate(0deg)'};
+`;
+
+const AccordionTitle = ({ title, index, setItem, currentItem }) => {
+  const onClick = useCallback(() => {
+    index === currentItem ? setItem(null) : setItem(index);
+  }, [setItem, index, currentItem]);
+
+  return (
+    <ItemButton currentItem={currentItem} index={index} onClick={onClick}>
+      {title}{' '}
+      <ItemIcon currentItem={currentItem} index={index}>
+        <FontAwesomeIcon icon={faAngleDown} />
+      </ItemIcon>
+    </ItemButton>
+  );
+};
+
+export default AccordionTitle;
