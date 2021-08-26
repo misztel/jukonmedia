@@ -28,6 +28,9 @@ import Accordion from '../components/Basic/Accordion/Accordion';
 import AccordionItem from '../components/Basic/Accordion/AccordionItem/AccordionItem';
 import ExampleForm from '../components/Form/ExampleForm';
 import ExampleFormStyle2 from '../components/Form/FormStyle2/ExampleFormStyle2';
+import Carousel from '../components/Carousel/Carousel';
+import CarouselItem from '../components/Carousel/CarouselItem/CarouselItem';
+
 
 const Hero = styled.section`
   width: 100%;
@@ -596,9 +599,15 @@ const IndexPage = () => (
       <h2>Carousel</h2>
     </Row>
     <Row>
-      <Col sm={4}>
-        <p>Carousel</p>
-      </Col>
+      <Carousel items={3}>
+        <CarouselItem color="violet"> Item 1 </CarouselItem>
+        <CarouselItem color="aqua"> Item 2 </CarouselItem>
+        <CarouselItem color="greenyellow"> Item 3 </CarouselItem>
+        <CarouselItem color="blue"> Item 4 </CarouselItem>
+        <CarouselItem color="lime"> Item 5 </CarouselItem>
+        <CarouselItem color="purple"> Item 6 </CarouselItem>
+        <CarouselItem color="grey"> Item 7 </CarouselItem>
+      </Carousel>
     </Row>
     <Row>
       <h2>Slider</h2>
