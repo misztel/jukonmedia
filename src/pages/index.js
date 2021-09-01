@@ -5,8 +5,17 @@ import {
   faLinkedinIn,
   faGithub,
   faFacebookSquare,
+  faApple,
+  faBehance,
+  faBitcoin,
+  faCpanel,
+  faAws,
+  faBootstrap,
+  faEbay,
+  faDiscord,
+  faGitkraken,
+  faHooli
 } from '@fortawesome/free-brands-svg-icons';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
 
 import Shape from '../images/shape.svg';
@@ -71,12 +80,12 @@ const SocialIcons = styled.div`
 
 const SocialIcon = styled.a`
   padding: 5px;
-  color: ${({ theme }) => theme.primaryColor};
+  color: ${({ theme }) => theme.accentColor.primary};
   transition: all 0.3s ease-in-out;
   display: inline-block;
   margin: 0 15px 0 0;
   &:hover {
-    color: ${({ theme }) => theme.primaryText};
+    color: ${({ theme }) => theme.accentColor.secondary};
   }
 `;
 
@@ -85,7 +94,7 @@ const StyledShape = styled.img`
   width: 60%;
 `;
 
-const IndexPage = () => (
+const IndexPage = (props) => (
   <Layout>
     <Hero>
       <HeroPart>
@@ -99,7 +108,7 @@ const IndexPage = () => (
           <Button round="5px" margin="30px 0px">
             Check Out
           </Button>
-          <Button variant="outline" round="5px" margin="30px 0px 30px 10px">
+          <Button outlined round="5px" margin="30px 0px 30px 10px">
             Download
           </Button>
           <SocialIcons>
@@ -120,7 +129,7 @@ const IndexPage = () => (
       <h2>Cards</h2>
     </Row>
     <Row>
-      <Col sm={6}>
+      <Col sm={3}>
         <Card>
           <CardIcon>
             <FontAwesomeIcon icon={faGithub} size={'2x'} />
@@ -132,7 +141,7 @@ const IndexPage = () => (
           </CardText>
         </Card>
       </Col>
-      <Col sm={2}>
+      <Col sm={3}>
         <Card>
           <CardIcon>
             <FontAwesomeIcon icon={faFacebookSquare} size={'2x'} />
@@ -144,7 +153,7 @@ const IndexPage = () => (
           </CardText>
         </Card>
       </Col>
-      <Col sm={4}>
+      <Col sm={3}>
         <Card>
           <CardIcon>
             <FontAwesomeIcon icon={faGithub} size={'2x'} />
@@ -156,7 +165,7 @@ const IndexPage = () => (
           </CardText>
         </Card>
       </Col>
-      <Col sm={12}>
+      <Col sm={3}>
         <Card>
           <CardIcon>
             <FontAwesomeIcon icon={faFacebookSquare} size={'2x'} />
@@ -208,7 +217,7 @@ const IndexPage = () => (
       <Col>
         <Button
           color="primary"
-          variant="outline"
+          outlined
           round="5px"
           margin="30px 0px 30px 10px"
         >
@@ -216,7 +225,7 @@ const IndexPage = () => (
         </Button>
         <Button
           color="secondary"
-          variant="outline"
+          outlined
           round="5px"
           margin="30px 0px 30px 10px"
         >
@@ -224,7 +233,7 @@ const IndexPage = () => (
         </Button>
         <Button
           color="danger"
-          variant="outline"
+          outlined
           round="5px"
           margin="30px 0px 30px 10px"
         >
@@ -235,7 +244,7 @@ const IndexPage = () => (
         <Button
           disabled
           color="primary"
-          variant="outline"
+          outlined
           round="5px"
           margin="30px 0px 30px 10px"
         >
@@ -244,7 +253,7 @@ const IndexPage = () => (
         <Button
           disabled
           color="secondary"
-          variant="outline"
+          outlined
           round="5px"
           margin="30px 0px 30px 10px"
         >
@@ -253,7 +262,7 @@ const IndexPage = () => (
         <Button
           disabled
           color="danger"
-          variant="outline"
+          outlined
           round="5px"
           margin="30px 0px 30px 10px"
         >
@@ -270,37 +279,37 @@ const IndexPage = () => (
         <List>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
@@ -311,37 +320,37 @@ const IndexPage = () => (
         <List>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
@@ -352,37 +361,37 @@ const IndexPage = () => (
         <List>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <FontAwesomeIcon icon={faCheck} />
+              <FontAwesomeIcon icon={faCircle} />
             </ListItemIcon>
             <ListItemText>First Item</ListItemText>
           </ListItem>
@@ -499,16 +508,16 @@ const IndexPage = () => (
       <Accordion>
         <AccordionItem title="Accordion First">
           <List>
-            <ListItem mode="secondary">
-              <ListItemIcon mode="secondary">
+            <ListItem>
+              <ListItemIcon>
                 <FontAwesomeIcon icon={faCircle} />
               </ListItemIcon>
               <ListItemText>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </ListItemText>
             </ListItem>
-            <ListItem mode="secondary">
-              <ListItemIcon mode="secondary">
+            <ListItem>
+              <ListItemIcon>
                 <FontAwesomeIcon icon={faCircle} />
               </ListItemIcon>
               <ListItemText>
@@ -520,8 +529,8 @@ const IndexPage = () => (
                 similique odit animi!
               </ListItemText>
             </ListItem>
-            <ListItem mode="secondary">
-              <ListItemIcon mode="secondary">
+            <ListItem>
+              <ListItemIcon>
                 <FontAwesomeIcon icon={faCircle} />
               </ListItemIcon>
               <ListItemText>
@@ -599,14 +608,12 @@ const IndexPage = () => (
       <h2>Carousel</h2>
     </Row>
     <Row>
-      <Carousel items={3}>
-        <CarouselItem color="violet"> Item 1 </CarouselItem>
-        <CarouselItem color="aqua"> Item 2 </CarouselItem>
-        <CarouselItem color="greenyellow"> Item 3 </CarouselItem>
-        <CarouselItem color="blue"> Item 4 </CarouselItem>
-        <CarouselItem color="lime"> Item 5 </CarouselItem>
-        <CarouselItem color="purple"> Item 6 </CarouselItem>
-        <CarouselItem color="grey"> Item 7 </CarouselItem>
+      <Carousel items={3} autoplay steady transitionTime={2000} autoplaySpeed={2000}  >
+        <CarouselItem> <FontAwesomeIcon icon={faBehance} size={'4x'} color={'#E0E0FF'} /> </CarouselItem>
+        <CarouselItem> <FontAwesomeIcon icon={faAws} size={'4x'} color={'#E0E0FF'} /> </CarouselItem>
+        <CarouselItem> <FontAwesomeIcon icon={faBitcoin} size={'4x'} color={'#E0E0FF'} /> </CarouselItem>
+        <CarouselItem> <FontAwesomeIcon icon={faFacebookSquare} size={'4x'} color={'#E0E0FF'} /> </CarouselItem>
+        <CarouselItem> <FontAwesomeIcon icon={faCpanel} size={'4x'} color={'#E0E0FF'} /> </CarouselItem>
       </Carousel>
     </Row>
     <Row>

@@ -12,14 +12,15 @@ const ItemButton = styled.div`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  background-color: ${({ theme }) => theme.reversePrimaryColor};
-  color: ${({ theme }) => theme.secondaryText};
+  background-color: ${({ theme }) => theme.backgroundColor.secondary};
+  color: ${({ theme }) => theme.neutralColor.textPrimary};
   transition: transform 0.2s ease;
   font-weight: 600;
-  border-bottom: 2px solid gainsboro;
+  border-bottom: 2px solid ${({ theme }) => theme.accentColor.primary};;
+  margin: 0 0 5px 0;
 
   &:hover {
-    color: ${({ theme }) => theme.primaryColor};
+    color: ${({ theme }) => theme.accentColor.primary};
   }
 `;
 

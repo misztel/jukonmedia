@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="309" height="63.479" viewBox="0 0 309 63.479">
   <g id="Group_2" data-name="Group 2" transform="translate(-148 -103)">
-    <text id="Company.com" transform="translate(231 113)" fill="#6d83f2" font-size="30" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="29">Company</tspan><tspan y="29" font-family="Montserrat-Regular, Montserrat" font-weight="400">.com</tspan></text>
-    <rect id="Rectangle_13" data-name="Rectangle 13" width="44.887" height="44.887" rx="10" transform="translate(148 134.74) rotate(-45)" fill="#6d83f2"/>
-    <rect id="Rectangle_14" data-name="Rectangle 14" width="44.887" height="44.887" rx="10" transform="translate(161 134.74) rotate(-45)" fill="rgba(109,131,242,0.5)"/>
+    <text id="Company.com" transform="translate(231 113)" fill="#0fa" font-size="30" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="29">Company</tspan><tspan y="29" font-family="Montserrat-Regular, Montserrat" font-weight="400">.com</tspan></text>
+    <rect id="Rectangle_13" data-name="Rectangle 13" width="44.887" height="44.887" rx="10" transform="translate(148 134.74) rotate(-45)" fill="#0fa"/>
+    <rect id="Rectangle_14" data-name="Rectangle 14" width="44.887" height="44.887" rx="10" transform="translate(161 134.74) rotate(-45)" fill="rgba(0,255,170,0.5)"/>
   </g>
 </svg>

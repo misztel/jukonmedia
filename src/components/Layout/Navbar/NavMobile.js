@@ -36,7 +36,7 @@ const StyledNav = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  background-color: ${({ theme }) => theme.background};
+  background-color: ${({ theme }) => theme.backgroundColor.primary};
   transition: all 0.3s ease-in-out;
   opacity: ${props => (props.toggled ? 1 : 0)};
   visibility: ${props => (props.toggled ? 'visible' : 'hidden')};

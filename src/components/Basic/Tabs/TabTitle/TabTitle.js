@@ -9,7 +9,7 @@ const TabButton = styled.span`
   height: 40px;
   cursor: pointer;
   color: ${({ theme, currentTab, index }) =>
-    currentTab === index ? theme.primaryColor : theme.primaryText};
+    currentTab === index ? theme.accentColor.primary : theme.neutralColor.textPrimary};
   transition: transform 0.2s ease;
   font-weight: 600;
 

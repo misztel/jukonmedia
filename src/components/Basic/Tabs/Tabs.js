@@ -6,6 +6,7 @@ import TabHighlighter from './TabHighlighter/TabHighlighter';
 
 const StyledTab = styled.div`
   width: 100%;
+  transition: all 0.3s linear;
 `;
 
 const TabNav = styled.div`

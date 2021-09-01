@@ -1,13 +1,14 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 const StyledAccordionItem = styled.div`
   overflow: hidden;
   height: ${({ heightProp }) => heightProp + 'px'};
-  color: ${({ theme }) => theme.secondaryText};
-  background-color: ${({ theme }) => theme.reverseSecondaryColor};
+  color: ${({ theme }) => theme.neutralColor.textPrimary};
+  background-color: ${({ theme }) => theme.backgroundColor.secondary};
   transition: height 0.2s ease;
-  border-left: 4px solid ${({ theme }) => theme.primaryColor};
+  border-left: 4px solid ${({ theme }) => theme.accentColor.primary};
+  margin: 0 0 5px 0;
 `;
 
 const StyledAccordionContent = styled.div`
@@ -21,8 +22,7 @@ const AccordionItem = ({ children, index, currentItem }) => {
     currentItem === index
       ? setHeight(content.current.scrollHeight)
       : setHeight(0);
-    console.log('changed: ', currentItem);
-  });
+  }, [currentItem, index]);
 
   const content = useRef(null);
 

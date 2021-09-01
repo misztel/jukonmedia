@@ -3,29 +3,29 @@ import styled from 'styled-components';
 const handleButtonColor = color => {
   switch (color) {
     case 'secondary':
-      return ({ theme }) => theme.secondaryColor;
+      return ({ theme }) => theme.accentColor.secondary;
     case 'danger':
-      return ({ theme }) => theme.dangerColor;
+      return ({ theme }) => theme.infoColor.danger;
     default:
-      return ({ theme }) => theme.primaryColor;
+      return ({ theme }) => theme.accentColor.primary;
   }
 };
 
 const handleButtonHoverColor = color => {
   switch (color) {
     case 'secondary':
-      return ({ theme }) => theme.secondaryColorHover;
+      return ({ theme }) => theme.accentColor.tertiary;
     case 'danger':
-      return ({ theme }) => theme.dangerColorHover;
+      return ({ theme }) => theme.infoColor.danger;
     default:
-      return ({ theme }) => theme.primaryColorHover;
+      return ({ theme }) => theme.accentColor.primary;
   }
 };
 
 const Button = styled.button`
-  background-color: ${({ variant, color }) =>
-    variant ? 'trasparent' : handleButtonColor(color)};
-  color: ${({ theme }) => theme.primaryText};
+  background-color: ${({ outlined, color }) =>
+    outlined ? 'trasparent' : handleButtonColor(color)};
+  color: ${({ outlined, theme }) => outlined ? ({ color }) => handleButtonColor(color) : theme.backgroundColor.primary};
   cursor: pointer;
   transition: 0.2s;
   width: ${({ width }) => (width ? width : 'auto')};

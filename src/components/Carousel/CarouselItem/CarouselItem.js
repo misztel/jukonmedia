@@ -6,7 +6,7 @@ const StyledCarouselItem = styled.div`
   align-items: center;
   justify-content:center;
   height: 200px;
-  background-color: ${({ color }) => color ? color : 'greenyellow'};
+  background-color: ${({ color }) => color ? color : 'transparent'};
   color: floralwhite;
 `;
 

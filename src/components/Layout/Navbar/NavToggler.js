@@ -23,15 +23,15 @@ const StyledMenuToggler = styled.button`
   }
   &:hover {
     .textinner {
-      color: ${({ theme }) => theme.text};
+      color: ${({ theme }) => theme.neutralColor.textPrimary};
     }
     .inner {
-      background-color: ${({ theme }) => theme.text};
+      background-color: ${({ theme }) => theme.neutralColor.textPrimary};
       &:before {
-        background-color: ${({ theme }) => theme.text};
+        background-color: ${({ theme }) => theme.neutralColor.textPrimary};
       }
       &:after {
-        background-color: ${({ theme }) => theme.text};
+        background-color: ${({ theme }) => theme.neutralColor.textPrimary};
       }
     }
   }
@@ -76,7 +76,7 @@ const HamburgerInner = styled.div`
   transform: ${props => (props.isToggled ? 'rotate(-45deg)' : 'rotate(0deg)')};
   border-radius: 4px;
   top: ${props => (props.isToggled ? '10px' : '0px')};
-  background-color: ${({ theme }) => theme.primaryColor};
+  background-color: ${({ theme }) => theme.accentColor.primary};
   &:before {
     content: '';
     position: absolute;
@@ -87,7 +87,7 @@ const HamburgerInner = styled.div`
     transition-property: transform, top;
     transform: ${props => (props.isToggled ? 'rotate(90deg)' : 'rotate(0deg)')};
     border-radius: 4px;
-    background-color: ${({ theme }) => theme.primaryColor};
+    background-color: ${({ theme }) => theme.accentColor.primary};
     top: ${props => (props.isToggled ? '0px' : '10px')};
     left: 0px;
   }
@@ -101,7 +101,7 @@ const HamburgerInner = styled.div`
     transition-property: transform, top;
     transform: ${props => (props.isToggled ? 'rotate(90deg)' : 'rotate(0deg)')};
     border-radius: 4px;
-    background-color: ${({ theme }) => theme.primaryColor};
+    background-color: ${({ theme }) => theme.accentColor.primary};
     top: ${props => (props.isToggled ? '0px' : '20px')};
     left: 0px;
     opacity: ${props => (props.isToggled ? '0' : '1')};

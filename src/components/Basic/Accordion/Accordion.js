@@ -13,9 +13,8 @@ const Accordion = ({ children }) => {
   return (
     <>
       {children.map((item, index) => (
-        <StyledAccordion>
+        <StyledAccordion key={index}>
           <AccordionTitle
-            key={index}
             title={item.props.title}
             index={index}
             currentItem={currentItem}
@@ -23,7 +22,7 @@ const Accordion = ({ children }) => {
           />
           {React.cloneElement(children[index], {
             index: index,
-            currentItem: currentItem,
+            currentItem: currentItem
           })}
         </StyledAccordion>
       ))}

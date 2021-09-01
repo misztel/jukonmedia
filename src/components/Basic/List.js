@@ -14,14 +14,14 @@ export const ListItem = styled.li`
   justify-content: flex-start;
   text-decoration: none;
   color: ${({ mode, theme }) =>
-    mode === 'secondary' ? theme.secondaryText : theme.primaryText};
+    mode === 'secondary' ? theme.neutralColor.textSecondary : theme.neutralColor.textPrimary};
 `;
 
 export const ListItemIcon = styled.div`
   min-width: 40px;
   flex-shrink: 0;
   color: ${({ mode, theme }) =>
-    mode === 'secondary' ? theme.primaryColor : theme.primaryText};
+    mode === 'secondary' ? theme.accentColor.primary : theme.accentColor.primary};
 `;
 
 export const ListItemText = styled.div`

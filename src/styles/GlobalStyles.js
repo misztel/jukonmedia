@@ -16,28 +16,28 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
   body {
-    background-color: ${({ theme }) => theme.background};
+    background-color: ${({ theme }) => theme.backgroundColor.primary};
     color: ${({ theme }) => theme.text};
     margin: 0;
   }
   a{
-    color: ${({ theme }) => theme.primaryColor};
+    color: ${({ theme }) => theme.accentColor.primary};
     text-decoration: none;
   }
   a:hover{
-    color: ${({ theme }) => theme.primaryText};
+    color: ${({ theme }) => theme.accentColor.secondary};
   }
   h1, h2, h3, h4, h5, h6{
     margin: 10px 0;
     line-height: 120%;
-    color: ${({ theme }) => theme.primaryText};
+    color: ${({ theme }) => theme.neutralColor.textPrimary};
   }
   p{
     font-size: 1rem;
     margin: 0;
     line-height: 140%;
     font-family: ${({ theme }) => theme.fontFamily};
-    color: ${({ theme }) => theme.primaryText};
+    color: ${({ theme }) => theme.neutralColor.textPrimary};
   }
   ul{
     list-style: none;

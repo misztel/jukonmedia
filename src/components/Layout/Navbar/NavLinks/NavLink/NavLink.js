@@ -3,13 +3,13 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const StyledLink = styled(props => <Link {...props} />)`
-  color: ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.accentColor.primary};
   text-decoration: none;
   font-weight: 600;
 
   transition: all 0.3s ease-in-out;
   &:hover {
-    color: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.neutralColor.textPrimary};
   }
 `;
 

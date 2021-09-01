@@ -35,33 +35,47 @@ const themeConfig = {
 };
 
 export const darkTheme = {
-  background: '#1D2731',
-  primaryColor: '#6d83f2',
-  primaryColorHover: '#5890DB',
-  secondaryColor: '#328CC1',
-  secondaryColorHover: '#2EC7D9',
-  reversePrimaryColor: '#fff',
-  reverseSecondaryColor: '#F8F8FA',
-  primaryText: '#fff',
-  secondaryText: '#3a3a3a',
-  accentColor: '#D9B310',
-  dangerColor: '#990800',
-  dangerColorHover: '#730600',
+  accentColor: {
+    primary: '#00FFAA',
+    secondary: '#00BBFF',
+    tertiary: '#4579F5',
+  },
+  neutralColor: {
+    white: '#fff',
+    textPrimary: '#E0E0FF',
+    textSecondary: '#202036',
+    shadow: '#1B0A52'
+  },
+  backgroundColor: {
+    primary: '#27273E',
+    secondary: '#202036',
+    tertiary: '#33334B'
+  },
+  infoColor: {
+    danger: '#e63946'
+  },
   ...themeConfig,
 };
 
 export const lightTheme = {
-  background: '#FFF',
-  primaryColor: '#6d83f2',
-  primaryColorHover: '#5890DB',
-  secondaryColor: '#328CC1',
-  secondaryColorHover: '#2EC7D9',
-  reversePrimaryColor: '#fff',
-  reverseSecondaryColor: '#F8F8FA',
-  primaryText: '#3a3a3a',
-  secondaryText: '#fff',
-  accentColor: '#D9B310',
-  dangerColor: '#990800',
-  dangerColorHover: '#730600',
+  accentColor: {
+    primary: '#00FFAA',
+    secondary: '#00BBFF',
+    tertiary: '#4579F5',
+  },
+  neutralColor: {
+    white: '#fff',
+    textPrimary: '#536273',
+    textSecondary: '#F9FCFF',
+    shadow: '#1B0A52'
+  },
+  backgroundColor: {
+    primary: '#F9FCFF',
+    secondary: '#C0CBD7',
+    tertiary: '#536273'
+  },
+  infoColor: {
+    danger: '#e63946'
+  },
   ...themeConfig,
 };

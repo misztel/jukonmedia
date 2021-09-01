@@ -5,7 +5,7 @@ const StyledTabHighlighter = styled.span`
   position: absolute;
   bottom: 0px;
   height: 3px;
-  background-color: ${({ theme }) => theme.primaryColor};
+  background-color: ${({ theme }) => theme.accentColor.primary};
   width: 100%;
   max-width: 130px;
   display: block;
