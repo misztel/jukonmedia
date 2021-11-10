@@ -2,14 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledMenuToggler = styled.button`
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
   cursor: pointer;
   font-weight: 600;
   background-color: transparent;
-  z-index: 10;
+  z-index: 15;
   border: none;
   transition: all 0.3s linear;
   .inner {
@@ -37,7 +36,7 @@ const StyledMenuToggler = styled.button`
   }
 
   @media ${props => props.theme.media.fablet} {
-    display: flex;
+    display: none;
   }
 `;
 

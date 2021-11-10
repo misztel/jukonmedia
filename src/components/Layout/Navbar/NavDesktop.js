@@ -1,24 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { Link } from 'gatsby';
 import NavLinks from './NavLinks/NavLinks';
-import ThemeToggler from '../../Theme/ThemeToggler';
 
-import Logo from '../../../images/logocompany.svg';
+import Logo from '../../../images/jukonmedia_logo_v2.png';
 
 const StyledNavDesktop = styled.header`
   position: relative;
   left: 0px;
   top: 0px;
   width: 100%;
-  padding: 20px 20px;
-  display: flex;
+  padding: 20px 0px;
+  display: none;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 
   @media ${props => props.theme.media.fablet} {
-    display: none;
+    display: flex;
   }
 `;
 
@@ -34,10 +33,11 @@ const StyledLogo = styled.img`
 const NavDesktop = () => {
   return (
     <StyledNavDesktop>
-      <StyledLogo src={Logo} />
+      <Link to="/">
+        <StyledLogo src={Logo} alt={"JukonMedia Logo"} />
+      </Link>
       <StyledNav>
         <NavLinks />
-        <ThemeToggler />
       </StyledNav>
     </StyledNavDesktop>
   );

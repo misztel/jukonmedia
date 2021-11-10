@@ -3,7 +3,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import styled from 'styled-components';
 
-import CustomField from './CustomField';
+import InputField from './FormFields/Input/Input';
 import Button from '../Basic/Button';
 
 const validateSchema = Yup.object().shape({
@@ -44,18 +44,18 @@ export default class OrderModal extends React.Component {
           <StyledForm>
             <div>
               <div className="input_wrap">
-                <CustomField type="text" name="name" customplaceholder="Name" />
+                <InputField type="text" name="name" customplaceholder="Name" />
               </div>
             </div>
             <div className="input_wrap">
-              <CustomField
+              <InputField
                 type="email"
                 name="email"
                 customplaceholder="Email"
               />
             </div>
             <div className="input_wrap">
-              <CustomField
+              <InputField
                 type="tel"
                 name="phone"
                 customplaceholder="Phone Number"

@@ -1,13 +1,45 @@
 import React from 'react';
-import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const StyledTab = styled.div`
-  padding: 20px;
-  color: ${({ theme }) => theme.primaryText};
-`;
+import Col from '../../Col';
+import Row from '../../Row';
+
+const cardVariant = {
+  active: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
+  },
+  inactive: {
+    opacity: 0,
+    y: 10,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
 
 const Tab = ({ children }) => {
-  return <StyledTab>{children}</StyledTab>;
+  let items = React.Children.toArray(children);
+
+  return (
+    <Row>
+      {items.map((item, index) => {
+        return (
+          <Col
+            md={12}
+            style={{ marginBottom: '25px' }}
+            as={motion.div}
+            key={index}
+            variants={cardVariant}>
+            {React.cloneElement(item)}
+          </Col>
+        )
+      })}
+    </Row>
+  );
 };
 
 export default Tab;

@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import { Link } from 'gatsby';
 import NavLinks from './NavLinks/NavLinks';
 import NavToggler from './NavToggler';
-import ThemeToggler from '../../Theme/ThemeToggler';
 
-import Logo from '../../../images/logocompany.svg';
+import Logo from '../../../images/jukonmedia_logo_v2.png';
 
 const StyledMobileNav = styled.header`
-  display: none;
+  display: flex;
   width: 100%;
   padding: 10px;
 
   @media ${props => props.theme.media.fablet} {
-    display: flex;
+    display: none;
   }
 `;
 
@@ -32,7 +32,7 @@ const StyledNav = styled.div`
   width: 100%;
   height: 100vh;
   padding: 75px 25px 100px;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
@@ -40,15 +40,16 @@ const StyledNav = styled.div`
   transition: all 0.3s ease-in-out;
   opacity: ${props => (props.toggled ? 1 : 0)};
   visibility: ${props => (props.toggled ? 'visible' : 'hidden')};
+  z-index: 11;
 
   @media ${props => props.theme.media.fablet} {
-    display: flex;
+    display: none;
   }
 `;
 
 const StyledLogo = styled.img`
-  width: 200px;
-  z-index: 10;
+  width: 250px;
+  z-index: 15;
 `;
 
 const NavMobile = () => {
@@ -61,12 +62,13 @@ const NavMobile = () => {
   return (
     <StyledMobileNav>
       <StyledHeader>
-        <StyledLogo src={Logo} />
+        <Link to="/" style={{ zIndex: 15 }}>
+          <StyledLogo src={Logo} alt={"JukonMedia Logo"} />
+        </Link>
         <NavToggler toggled={toggled} clicked={() => toggleHandler()} />
       </StyledHeader>
       <StyledNav toggled={toggled}>
-        <NavLinks />
-        <ThemeToggler />
+        <NavLinks clicked={() => toggleHandler()} />
       </StyledNav>
     </StyledMobileNav>
   );

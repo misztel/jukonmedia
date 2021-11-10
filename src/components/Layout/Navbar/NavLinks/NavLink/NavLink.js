@@ -21,7 +21,7 @@ const StyledNavLink = styled.li`
 
 const NavLink = props => (
   <StyledNavLink>
-    <StyledLink to={props.to}>{props.children}</StyledLink>
+    <StyledLink onClick={() => props.clicked()} to={props.to}>{props.children}</StyledLink>
   </StyledNavLink>
 );
 

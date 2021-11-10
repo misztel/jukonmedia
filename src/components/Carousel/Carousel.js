@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,29 +8,23 @@ const CarouselContainer = styled.div`
   position: relative;
   overflow: hidden;
   width: 100%;
+  padding: ${({ padding }) => padding ? padding : `0`};
 `;
 
 const CarouselInner = styled.div`
   white-space: nowrap;
   transform: ${({ activeIndex, items }) => `translateX(-${activeIndex * 100 / items}%)`};
-  transition: ${({ transition, transitionTime }) => !transition ? `transform 0s linear` : `transform ${transitionTime}ms linear`};
-`;
-
-const CarouselControls = styled.div`
-    position: absolute;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    top: 0;
+  transition: ${({ transition, transitionTime }) => !transition ? `transform 0s ease-in-out` : `transform ${transitionTime}ms ease-in-out`};
 `;
 
 const CarouselArrows = styled.div`
-display: flex;
-    justify-content: space-between;
-    width: 100%;
-    z-index: 11;
-    visibility: ${({ arrows }) => arrows ? 'visible' : 'hidden'};
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  transform: translateY(-50%);
+  visibility: ${({ arrows }) => arrows ? 'visible' : 'hidden'};
 `;
 
 const CarouselArrowLeft = styled.button`
@@ -63,141 +57,133 @@ const CarouselArrowRight = styled.button`
   }
 `;
 
-const CarouselBulletNavWrapper = styled.div`
-  z-index: 10;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  flex-flow: column-reverse;
-`;
-
 const CarouselBulletsNav = styled.div`
-  padding: 0 0 10px 0;
-  display: inline-flex;
-  vertical-align: top;
-  align-items: center;
-  flex-wrap: wrap;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate3d(-50%,0,0);
+  z-index: 10;
   visibility: ${({ dots }) => dots ? 'visible' : 'hidden'};
 `;
 
 const Bullet = styled.div`
-  opacity: 1;
-  padding: 5px 5px 5px 5px;
-  box-shadow: none;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #ffffff;
-  border-color: ${({ active }) => active ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.8)'};
-  border-radius: 50px;
-  margin: 4px;
-  background-color: ${({ active }) => active ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0)'};
+  display: inline-block;
+  margin: 0px 5px;
+  width: ${({ active }) => active ? '28px' : '13px'};
+  height: 13px;
+  border-radius: 10px;
+  background-color: ${({ theme }) => theme.accentColor.primary};
   cursor: pointer;
+  transition: ${({ transitionTime }) => `all 0.2s ease-in-out ${transitionTime / 2}ms`};
 `;
 
-const Carousel = ({ children, items, dots, arrows }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const Carousel = ({ children, items, dots, arrows, pauseTime, transitionTime, autoplay, padding }) => {
+  const [activeIndex, setActiveIndex] = useState(1);
   const [transition, setTransition] = useState(true);
+  const [carouselItems, setCarouselItems] = useState([]);
 
-  let slides = React.Children.toArray(children);
+  useEffect(() => {
+    let slides = React.Children.toArray(children);
+    let clonedSlides = slides;
 
-  for (let i = 0; i < items; i++) {
-    slides.push(slides[i]);
-  };
+    let cloneBackCount = items === 1 ? 1 : items;
 
-  let interval = 3000;
-  let transitionTime = 3000;
+    for (let i = 0; i < cloneBackCount; i++) {
+      clonedSlides = [...clonedSlides, slides[i]];
+    };
+    clonedSlides = [slides[slides.length - 1], ...clonedSlides];
+
+    setCarouselItems(clonedSlides);
+    setActiveIndex(1);
+  }, [children, items]);
 
   const changeItem = (newIndex) => {
-    let animation = true;
-    if (newIndex < 0) {
-      animation = true;
-      newIndex = slides.length - items;
+
+    let resetIndex = carouselItems.length - items;
+
+    if (newIndex === 0) {
       setActiveIndex(newIndex);
-      setTransition(animation);
-    } else if (newIndex === slides.length - items + 1) {
-      animation = false;
-      newIndex = 0;
-      setActiveIndex(newIndex);
-      setTransition(animation);
       setTimeout(() => {
-        setTransition(true);
+        setTransition(false);
+        setActiveIndex(carouselItems.length - items - 1);
+      }, transitionTime);
+    } else if (newIndex === resetIndex) {
+      setActiveIndex(newIndex);
+      setTimeout(() => {
+        setTransition(false);
         setActiveIndex(1);
-      }, 10);
+      }, transitionTime);
     }
     setActiveIndex(newIndex);
-    setTransition(animation);
+    setTransition(true);
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setTransition(true);
-      setActiveIndex(1);
-    }, 10)
-  }, [])
-
-  useEffect(() => {
-    const auto = setInterval(() => {
-      changeItem(activeIndex + 1);
-    }, interval);
-    return () => {
-      if (auto) {
-        clearInterval(auto);
-      }
-    };
-  }, [activeIndex]);
+    if (autoplay) {
+      const auto = setInterval(() => {
+        changeItem(activeIndex + 1);
+      }, pauseTime);
+      return () => {
+        if (auto) {
+          clearInterval(auto);
+        }
+      };
+    }
+  }, [activeIndex, pauseTime, autoplay]);
 
   return (
-    <CarouselContainer>
-      <CarouselInner
-        activeIndex={activeIndex}
-        items={items}
-        interval={interval}
-        transitionTime={transitionTime}
-        transition={transition}
-      >
-        {slides.map((item, index) => {
-          return React.cloneElement(item, { width: 100 / items + '%', key: index, index: index });
-        })}
-      </CarouselInner>
-      <CarouselControls>
+    !carouselItems
+      ?
+      <> noo </>
+      :
+      <CarouselContainer padding={padding}>
+        <CarouselInner
+          activeIndex={activeIndex}
+          items={items}
+          pauseTime={pauseTime}
+          transitionTime={transitionTime}
+          transition={transition}
+        >
+          {carouselItems.map((item, index) => {
+            return React.cloneElement(item, { width: 100 / items + '%', key: index, index: index });
+          })}
+        </CarouselInner>
         <CarouselArrows arrows={arrows}>
           <CarouselArrowLeft
+            style={{ float: 'left' }}
             onClick={() => {
               changeItem(activeIndex - 1);
             }}>
             <FontAwesomeIcon icon={faAngleLeft} />
           </CarouselArrowLeft>
           <CarouselArrowRight
+            style={{ float: 'right' }}
             onClick={() => {
               changeItem(activeIndex + 1);
             }}>
             <FontAwesomeIcon icon={faAngleRight} />
           </CarouselArrowRight>
         </CarouselArrows>
-        <CarouselBulletNavWrapper>
-          <CarouselBulletsNav dots={dots}>
-            {slides.map((child, index) => {
-              if (index <= slides.length - items) {
-                return (
-                  <Bullet
-                    key={index}
-                    active={index === activeIndex ? true : false}
-                    onClick={() => {
-                      changeItem(index);
-                    }} />
-                )
-              }
-              else {
-                return null
-              }
-            })}
-          </CarouselBulletsNav>
-        </CarouselBulletNavWrapper>
-      </CarouselControls>
-    </CarouselContainer>
-  );
+        <CarouselBulletsNav dots={dots}>
+          {carouselItems.map((child, index) => {
+            if (index <= carouselItems.length - items - 1 && index >= 1) {
+              return (
+                <Bullet
+                  transitionTime={transitionTime}
+                  key={index}
+                  active={index === activeIndex ? true : false}
+                  onClick={() => {
+                    changeItem(index);
+                  }} />
+              )
+            }
+            else {
+              return null
+            }
+          })}
+        </CarouselBulletsNav>
+      </CarouselContainer>
+  )
 };
 
 export default Carousel;

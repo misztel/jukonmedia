@@ -1,19 +1,41 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 import TabTitle from './TabTitle/TabTitle';
 import TabHighlighter from './TabHighlighter/TabHighlighter';
 
-const StyledTab = styled.div`
+const TabContent = styled(motion.div)`
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
+  margin-top: 1rem;
+`;
+
+const StyledTab = styled.div`
   transition: all 0.3s linear;
+  width: 100%;
 `;
 
 const TabNav = styled.div`
   display: flex;
-  position: relative;
   flex-direction: row;
+  margin-bottom: 30px;
+  position: relative;
 `;
+
+
+const tabContentVariant = {
+  active: {
+    display: "block",
+    transition: {
+      staggerChildren: 0.2
+    }
+  },
+  inactive: {
+    display: "none"
+  }
+};
 
 const Tab = ({ children }) => {
   const [currentTab, setTab] = useState(0);
@@ -32,7 +54,15 @@ const Tab = ({ children }) => {
         ))}
         <TabHighlighter index={currentTab} />
       </TabNav>
-      {children[currentTab]}
+      {children.map((item, index) => (
+        <TabContent
+          key={index}
+          variants={tabContentVariant}
+          animate={index === currentTab ? "active" : "inactive"}
+          initial="inactive" >
+          {item}
+        </TabContent>
+      ))}
     </StyledTab>
   );
 };

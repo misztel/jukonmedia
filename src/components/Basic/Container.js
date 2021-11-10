@@ -1,16 +1,25 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: ${({ fluid }) => fluid ? '100%' : '1140px'};
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 0 15px;
+
+  @media ${props => props.theme.media.tablet} {
+    width: 100%;
+  }
+
+  @media ${props => props.theme.media.fablet} {
+    width: 100%;
+  }
 
   @media ${props => props.theme.media.desktop} {
-    width: 100%;
-    padding: 20px;
+    width: ${({ fluid }) => fluid ? '100%' : '1000px'};
+  }
+
+  @media ${props => props.theme.media.bigDesktop} {
+    width: ${({ fluid }) => fluid ? '100%' : '1200px'};
   }
 `;
 

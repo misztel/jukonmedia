@@ -13,19 +13,19 @@ const InputWrap = styled.div`
     padding: 26px 10px 12px 10px;
     background-color: transparent;
     border-bottom: solid 2px
-      ${({ error }) =>
-        error.error && error.touched ? 'red' : 'rgba(255,255,255, 0.2)'};
-    color: #fff;
+      ${({ error, theme }) =>
+    error.error && error.touched ? theme.infoColor.danger : theme.neutralColor.textPrimary};
+    color: ${({ theme }) => theme.neutralColor.textPrimary};
     font-weight: 500;
     font-size: 16px;
     transition: all 0.3s ease;
     &:focus {
       border-color: ${({ theme, error }) =>
-        error.error && error.touched ? 'red' : theme.primaryColor};
+    error.error && error.touched ? theme.infoColor.danger : theme.accentColor.primaryColor};
       outline: none;
     }
     &.error {
-      border-color: #e03030;
+      border-color: ${({ theme }) => theme.infoColor.danger};
     }
   }
   .placeholder {
@@ -34,7 +34,7 @@ const InputWrap = styled.div`
     left: 10px;
     font-size: 16px;
     font-weight: 500;
-    color: ${({ error }) => (error.error && error.touched ? 'red' : '#fff')};
+    color: ${({ error, theme }) => (error.error && error.touched ? theme.infoColor.danger : theme.neutralColor.textPrimary)};
     transition: all 0.3s ease;
     pointer-events: none;
     &.focused {
@@ -42,7 +42,7 @@ const InputWrap = styled.div`
       left: 0px;
       font-size: 13px;
       color: ${({ theme, error }) =>
-        error.error && error.touched ? 'red' : theme.primaryColor};
+    error.error && error.touched ? theme.infoColor.danger : theme.accentColor.primaryColor};
     }
   }
   span.error {
@@ -51,12 +51,12 @@ const InputWrap = styled.div`
     left: 10px;
     font-size: 14px;
     line-height: 14px;
-    color: #e03030;
+    color: ${({ theme }) => theme.infoColor.danger};
     text-align: left;
   }
 `;
 
-export default function CustomField(props) {
+export default function InputField(props) {
   const [field, meta] = useField(props);
   const [isFocused, onFocus] = useState(false);
 

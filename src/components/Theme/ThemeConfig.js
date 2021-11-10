@@ -5,6 +5,7 @@ export const breakpoints = {
   tablet: '768px',
   fablet: '998px',
   desktop: '1200px',
+  bigDesktop: '1400px'
 };
 
 const themeConfig = {
@@ -25,18 +26,19 @@ const themeConfig = {
     fontSize: '14px',
   },
   media: {
-    mobile: `(max-width: ${breakpoints.mobile})`,
-    tablet: `(max-width: ${breakpoints.tablet})`,
-    fablet: `(max-width: ${breakpoints.fablet})`,
-    desktop: `(max-width: ${breakpoints.desktop})`,
-    minMobile: `(min-width: ${breakpoints.mobile})`,
-    minTablet: `(min-width: ${breakpoints.tablet})`,
+    mobile: `(min-width: ${breakpoints.mobile})`,
+    tablet: `(min-width: ${breakpoints.tablet})`,
+    fablet: `(min-width: ${breakpoints.fablet})`,
+    desktop: `(min-width: ${breakpoints.desktop})`,
+    bigDesktop: `(min-width: ${breakpoints.bigDesktop})`,
+    maxMobile: `(max-width: ${breakpoints.mobile})`,
+    maxTablet: `(max-width: ${breakpoints.tablet})`,
   },
 };
 
 export const darkTheme = {
   accentColor: {
-    primary: '#00FFAA',
+    primary: '#f26531',
     secondary: '#00BBFF',
     tertiary: '#4579F5',
   },
@@ -52,15 +54,16 @@ export const darkTheme = {
     tertiary: '#33334B'
   },
   infoColor: {
-    danger: '#e63946'
+    danger: '#d84654',
+    success: '#4f9d69'
   },
   ...themeConfig,
 };
 
 export const lightTheme = {
   accentColor: {
-    primary: '#00FFAA',
-    secondary: '#00BBFF',
+    primary: '#F26531',
+    secondary: '#F9FCFF',
     tertiary: '#4579F5',
   },
   neutralColor: {
@@ -72,10 +75,14 @@ export const lightTheme = {
   backgroundColor: {
     primary: '#F9FCFF',
     secondary: '#C0CBD7',
-    tertiary: '#536273'
+    tertiary: '#d6efff'
+    //#026185
   },
   infoColor: {
-    danger: '#e63946'
+    danger: '#d84654',
+    success: '#4f9d69'
   },
   ...themeConfig,
 };
+
+//orabnge - f26531

@@ -1,22 +1,28 @@
 import { createGlobalStyle } from 'styled-components';
+
+import "@fontsource/montserrat";
+import "@fontsource/montserrat/500.css";
+import "@fontsource/montserrat/600.css";
+import "@fontsource/montserrat/700.css";
+
 export const GlobalStyles = createGlobalStyle`
  *,
  *::after,
  *::before {
+   box-sizing: border-box;
    margin: 0;
    padding: 0;
-   box-sizing: border-box;
   }
   body, html {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    height: 100%;
-    font-size: 16px;
     font-family: ${({ theme }) => theme.fontFamily};
+    font-size: 16px;
+    height: 100%;
+    -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
   }
   body {
-    background-color: ${({ theme }) => theme.backgroundColor.primary};
+    background-color: ${({ theme }) => theme.backgroundColor.tertiary};
     color: ${({ theme }) => theme.text};
     margin: 0;
   }
@@ -28,22 +34,33 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.accentColor.secondary};
   }
   h1, h2, h3, h4, h5, h6{
+    color: ${({ theme }) => theme.neutralColor.textPrimary};
     margin: 10px 0;
     line-height: 120%;
-    color: ${({ theme }) => theme.neutralColor.textPrimary};
+  }
+  h1{
+    font-size: 1.6rem
+  }
+  h2{
+    font-size: 1.4rem;
+  }
+  h3{
+    font-size: 1.2rem;
   }
   p{
-    font-size: 1rem;
-    margin: 0;
-    line-height: 140%;
-    font-family: ${({ theme }) => theme.fontFamily};
     color: ${({ theme }) => theme.neutralColor.textPrimary};
+    font-family: ${({ theme }) => theme.fontFamily};
+    font-size: 0.925rem;
+    letter-spacing: 0.05rem;
+    line-height: 160%;
+    margin: 0;
+    white-space: normal;
   }
   ul{
-    list-style: none;
-    padding: 0;
     font-size: 0.875rem;
     line-height: 130%;
+    list-style: none;
+    padding: 0;
   }
 
   button{
@@ -53,4 +70,26 @@ export const GlobalStyles = createGlobalStyle`
   img{
     width:100%;
   }
+
+  .mobile-order{
+      order: 2;
+    }
+
+  @media ${props => props.theme.media.fablet} {
+
+    .mobile-order{
+      order: 0;
+    }
+
+    h1{
+      font-size: 2rem;
+    }
+    h2{
+      font-size: 1.8rem;
+    }
+    h3{
+      font-size: 1.5rem;
+    }
+  }
+
   `;
